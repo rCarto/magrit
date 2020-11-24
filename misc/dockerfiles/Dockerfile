@@ -2,12 +2,14 @@ FROM ubuntu:18.04
 MAINTAINER mth
 
 RUN apt-get update && apt-get install -y software-properties-common && add-apt-repository ppa:deadsnakes/ppa \
+                && add-apt-repository ppa:ubuntugis/ubuntugis-unstable \
 		&& apt-get update \
 		&& apt-get install -y gcc libpython3.6-dev libopenblas-dev libopenblas-base \
         python3.6 python3.6-dev libgeos-dev \
         libfreetype6-dev libfreetype6 libproj-dev libspatialindex-dev libv8-3.14-dev libffi-dev \
         nodejs nodejs-dev npm redis-server libuv1-dev unzip wget git \
         libxslt1-dev libxml2 libxml2-dev libkml-dev locales \
+	proj-bin \
     && npm -g install topojson \
     && rm -rf /var/lib/apt/lists/* \
     && sed -e '/save/ s/^#*/#/' -i /etc/redis/redis.conf \
