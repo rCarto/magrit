@@ -33,8 +33,8 @@ ENV GDALOPTS="  --with-geos \
 		        --without-ogdi \
 		        --without-fme \
 		        --without-hdf4 \
-		        --with-spatialite \
-		        --with-static-proj4=/usr/lib"
+		        --with-spatialite"
+
 
 RUN mkdir $GDALBUILD && mkdir $GDALINST && cd $GDALBUILD && wget http://download.osgeo.org/gdal/3.0.4/gdal-3.0.4.tar.gz \
     && tar -xzf gdal-3.0.4.tar.gz && cd gdal-3.0.4 && ./configure --prefix=$GDALINST/gdal-3.0.4 $GDALOPTS \
